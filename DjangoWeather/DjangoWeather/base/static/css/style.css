@@ -4,12 +4,22 @@ body{
     font-family: Josefin sans, serif;
     margin: 0;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-image: url("../images/fond.jpeg");
+    height: 100%;
+    background-image: url("../images/table.jpg");
+    /*background-image: url("../images/fond.jpeg");*/
 }
 
 h1{
-    color: white;
+    color: black;
     text-align: center;
+}
+
+.moneyUser{
+    background: rgba(0, 0, 0, 0.5);
+    height: 70px;
+    width: 140px;
+    position: absolute;
+    right: 64px;
+    top: 64px;
+    border-radius: 16px;
 }
