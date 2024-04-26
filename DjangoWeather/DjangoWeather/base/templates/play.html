@@ -28,8 +28,12 @@
     </section>
 
     <section>
-        <input id="bet" type="number" placeholder="Mise" name="bet">
-        <button id="betRedirect" type="submit">Lancer ! </button>
+        <form action="/game/" method="POST">
+            {% csrf_token %}
+            <input id="inputWeather" name="weather">
+            <input id="bet" type="number" placeholder="Mise" name="bet">
+            <button id="betRedirect" type="submit">Lancer ! </button>
+        </form>
     </section>
 
 <script>
@@ -48,6 +52,8 @@
             });
             currentWeather = weather.target.closest('.weather').getAttribute('data-weather')
             weather.target.closest('.weather').style.border = '5px solid black'
+
+            inputWeather.value = currentWeather
         })
     })
 
@@ -55,13 +61,26 @@
         currentBet = inputbet.value
     })
 
-    btnRedirectRoute.addEventListener('click', () => {
-        if(currentBet > currentMoney){
-            return
-        }else if(currentMoney > currentBet){
-            console.log("send", currentWeather, currentBet, currentMoney)
-        }
-    })
+    // btnRedirectRoute.addEventListener('click', () => {
+    //     if(currentBet > currentMoney){
+    //         return
+    //     }else if(currentMoney > currentBet){
+    //         let data = {'selectWeather': selectWeather, 'bet' : currentBet}
+    //         $.ajax({
+    //             url: '/game/',
+    //             type: 'POST',
+    //             data: data,
+    //             success: function(response) {
+    //                 console.log(response)
+    //                 // window.location.href = response.redirect;
+    //             },
+    //             error: function(xhr, errmsg, err) {
+    //                 console.log(xhr.status + ": " + xhr.responseText);
+    //             }
+    //         });
+    //         console.log("send", currentWeather, currentBet, currentMoney)
+    //     }
+    // })
 
 </script>
 

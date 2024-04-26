@@ -85,7 +85,9 @@ def Wheels(self):
     return JsonResponse(event_data)
 
 def Game(request):
-    return render(request, 'game.html')
+    if request.method == 'POST':
+        data = request.POST
+    return render(request, 'game.html', {'data': data})
 
 def AuthView(request):
     if request.method == 'POST':

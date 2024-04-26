@@ -22,9 +22,13 @@
     <h1 id="roulette2"></h1>
     <h1 id="roulette3"></h1>
     <p id="countlancer">3 lancers</p>
+
+    <h1> MISE : {{ data.bet }} </h1>
+    <h1> WEATHER : {{ data.weather }} </h1>
+
     <button onclick="lancers()" id="lancer">Lancer</button>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}"></script>
 <script>
     let countLancer = 3
