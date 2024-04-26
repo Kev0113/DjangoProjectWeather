@@ -1,5 +1,11 @@
+*{
+    margin: 0;
+    padding: 0
+}
+
+
 body{
-    font-family: Futura;
+    font-family: 'Montserrat';
     margin: 0;
     width: 100%;
     height: 100%;
@@ -7,17 +13,89 @@ body{
     /*background-image: url("../images/fond.jpeg");*/
 }
 
-h1{
-    color: black;
+.moneyUser{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    right: 64px;
+    top: 64px;
+    width: 200px;
+    justify-content: center;
+    gap: 16px;
+}
+
+.moneyUser i{
+    font-size: 32px;
+    padding-right: 0.5px;
+}
+
+.moneyUser p{
+    color:white;
+    font-weight: bold;
+}
+
+.moneyUser div:first-child{
+    background: white;
+    padding: 8px;
+    border-radius: 100px;
+}
+
+.ranking{
+    background: rgba(0, 0, 0, 0.3);
+    height: 350px;
+    width: 600px;
+    color: white;
+    border-radius: 16px;
+    overflow-y: auto
+}
+
+.ranking .userRank{
+    display: flex;
+    justify-content: space-evenly;
+    padding-block: 25px;
+    border-bottom: 1px solid white;
+}
+
+.ranking .userRank p{
     text-align: center;
 }
 
-.moneyUser{
-    background: rgba(0, 0, 0, 0.5);
-    height: 70px;
-    width: 140px;
+.containerRanking{
     position: absolute;
-    right: 64px;
-    top: 64px;
-    border-radius: 16px;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+}
+
+button{
+    border-radius: 5px;
+    background: #b6b600;
+    border: none;
+    padding: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button:active{
+    background: #9e9e00;
+    zoom: 0.99;
+}
+
+.footer{
+    position: absolute;
+    left: 50%;
+    bottom: 64px;
+    transform: translateX(-50%);
+    margin-top: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.weather:hover{
+    cursor: pointer;
 }

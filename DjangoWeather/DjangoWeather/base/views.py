@@ -17,7 +17,25 @@ def CreateMoneyUser(sender, instance, created, **kwargs):
 
 @login_required
 def Home(request):
-    return render(request, 'home.html')
+    user = UserMoney.objects.get(user=request.user)
+    Moneyuser = user.money
+
+    ranking = UserMoney.objects.all().order_by('-money')[:5]
+    
+    return render(request, 'home.html', {'money': Moneyuser, 'ranking': ranking})
+
+def Ranking(request):
+    ranking = UserMoney.objects.all().order_by('-money')
+    return render(request, 'ranking.html', {'ranking': ranking})
+
+def Rules(request):
+    return render(request, 'rules.html')
+
+def Play(request):
+    user = UserMoney.objects.get(user=request.user)
+    Moneyuser = user.money
+
+    return render(request, 'play.html',{'money': Moneyuser})
 
 def AuthView(request):
     if request.method == 'POST':

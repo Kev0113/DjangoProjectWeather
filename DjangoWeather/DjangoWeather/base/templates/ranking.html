@@ -1,0 +1,16 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<a href="/">
+    <button style="font-size: 16px;padding-inline: 24px;">HOME</button>
+</a>
+
+
+{% if ranking %}
+    {% for userRank in ranking %}
+        <div>
+            <p style="text-align: center; font-weight: bold">{{ forloop.counter }} {{ userRank.user.username }} {{ userRank.money }} €</p>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

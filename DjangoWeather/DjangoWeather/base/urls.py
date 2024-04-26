@@ -22,4 +22,7 @@ urlpatterns = [
     path('signup/', AuthView, name='AuthView'),
     path('', Home, name='home'),
     path('logout/', Logout, name='custom_logout'),
+    path('ranking/', Ranking, name='ranking'),
+    path('rules/', Rules, name='rules'),
+    path('play/', Play, name='play'),
 ]

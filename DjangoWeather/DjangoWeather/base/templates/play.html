@@ -1,0 +1,68 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+
+    <a href="/">
+        <button style="font-size: 16px;padding-inline: 24px;">HOME</button>
+    </a>
+
+    <h1>Play</h1>
+
+
+    <section id="weatherBet" style="display: flex; gap: 16px">
+        <div class="weather" data-weather="sun">
+            <img style="width: 150px;" src="/static/images/sun.png" alt="">
+        </div>
+        <div class="weather" data-weather="cloud">
+            <img style="width: 150px;" src="/static/images/cloud.png" alt="">
+        </div>
+        <div class="weather" data-weather="rain">
+            <img style="width: 150px;" src="/static/images/rain.webp" alt="">
+        </div>
+        <div class="weather" data-weather="storm">
+            <img style="width: 150px;" src="/static/images/stormwebp.webp" alt="">
+        </div>
+        <div class="weather" data-weather="tornado">
+            <img style="width: 150px;" src="/static/images/tornado.webp" alt="">
+        </div>
+    </section>
+
+    <section>
+        <input id="bet" type="number" placeholder="Mise" name="bet">
+        <button id="betRedirect" type="submit">Lancer ! </button>
+    </section>
+
+<script>
+    let currentWeather = null
+    let currentBet = null
+    let currentMoney = parseInt(document.querySelector('#money').innerHTML)
+
+    let selectWeather = document.querySelectorAll('.weather')
+    let btnRedirectRoute = document.querySelector('#betRedirect')
+    let inputbet = document.querySelector('#bet')
+
+    selectWeather.forEach((e) => {
+        e.addEventListener('click', (weather) => {
+            selectWeather.forEach((element) => {
+                element.style.border = '';
+            });
+            currentWeather = weather.target.closest('.weather').getAttribute('data-weather')
+            weather.target.closest('.weather').style.border = '5px solid black'
+        })
+    })
+
+    inputbet.addEventListener('keyup', () => {
+        currentBet = inputbet.value
+    })
+
+    btnRedirectRoute.addEventListener('click', () => {
+        if(currentBet > currentMoney){
+            return
+        }else if(currentMoney > currentBet){
+            console.log("send", currentWeather, currentBet, currentMoney)
+        }
+    })
+
+</script>
+
+{% endblock %}
