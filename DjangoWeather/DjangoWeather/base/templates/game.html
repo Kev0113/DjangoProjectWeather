@@ -18,4 +18,27 @@
         <li>{{ event.nom }}</li>
     {% endfor %}
     </ul>
+    <h1 id="roulette"></h1>
+    <h1 id="roulette2"></h1>
+    <h1 id="roulette3"></h1>
+    <p id="countlancer">3 lancers</p>
+    <button onclick="lancers()" id="lancer">Récupérer les gains</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    let countLancer = 3
+    let game = true
+    let lancer = document.getElementById("countlancer")
+    function lancers() {
+    if (game) {
+        if (countLancer === 0) {
+            game = false;
+        } else {
+            countLancer--;
+        }
+        lancer.textContent = countLancer + " lancers";
+    }
+}
+</script>
 </body>

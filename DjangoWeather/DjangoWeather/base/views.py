@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -8,6 +10,8 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from .models import UserMoney
 from .models import Event
+from random import randint
+from django.http import JsonResponse
 
 
 @receiver(post_save, sender=User)
@@ -20,14 +24,50 @@ def CreateMoneyUser(sender, instance, created, **kwargs):
 def Home(request):
     return render(request, 'home.html')
 
-def Wheel():
-    print('Wheel')
+def Wheel(self):
+    events = Event.objects.all()
+    cumulative_probabilities = [0]
+    for event in events:
+        cumulative_probabilities.append(cumulative_probabilities[-1] + event.probabilite)
+
+    random_number = random.random()
+    selected_event = None
+    for i in range(len(cumulative_probabilities) - 1):
+        if cumulative_probabilities[i] <= random_number < cumulative_probabilities[i + 1]:
+            selected_event = events[i]
+            break
+    return selected_event
+def Wheels(self):
+    roulette1 = Wheel(self)
+    r1 = {
+        'nom' : roulette1.nom,
+        'multiplicateur': roulette1.multiplicateur,
+        'lancers': roulette1.lancers,
+        'probabilite': roulette1.probabilite,
+    }
+    roulette2 = Wheel(self)
+    r2 = {
+        'nom': roulette2.nom,
+        'multiplicateur': roulette2.multiplicateur,
+        'lancers': roulette2.lancers,
+        'probabilite': roulette2.probabilite,
+    }
+    roulette3 = Wheel(self)
+    r3 = {
+        'nom': roulette3.nom,
+        'multiplicateur': roulette3.multiplicateur,
+        'lancers': roulette3.lancers,
+        'probabilite': roulette3.probabilite,
+    }
+    event_data = {
+        'roulette1': r1,
+        'roulette2': r2,
+        'roulette3': r3,
+    }
+    return JsonResponse(event_data)
 
 def Game(request):
-    Wheel()
-    events = Event.objects.all()
-    event = Event.objects.get(id=1)
-    return render(request, 'game.html', {'events': events})
+    return render(request, 'game.html')
 
 def AuthView(request):
     if request.method == 'POST':
