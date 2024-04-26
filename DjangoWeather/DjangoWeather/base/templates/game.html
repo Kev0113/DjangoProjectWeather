@@ -12,5 +12,10 @@
 
 </head>
 <body>
-    <h1>Le Casino de la Météo !</h1>
+    <h1>Misez !</h1>
+    <ul>
+    {% for event in events %}
+        <li>{{ event.nom }}</li>
+    {% endfor %}
+    </ul>
 </body>
