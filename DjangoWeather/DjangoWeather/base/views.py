@@ -1,8 +1,19 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .models import UserMoney
 
-# Create your views here.
+
+@receiver(post_save, sender=User)
+def CreateMoneyUser(sender, instance, created, **kwargs):
+    if created:
+        UserMoney.objects.create(user=instance, money=100)
+
 
 @login_required
 def Home(request):
@@ -16,3 +27,7 @@ def AuthView(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {"form" : form})
+
+def Logout(request):
+    logout(request)
+    return redirect('/')
