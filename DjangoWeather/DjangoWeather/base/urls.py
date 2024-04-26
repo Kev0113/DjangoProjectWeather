@@ -22,6 +22,7 @@ urlpatterns = [
     path('signup/', AuthView, name='AuthView'),
     path('', Home, name='home'),
     path('game/', Game, name='game'),
+    path('wheels/', Wheels, name='wheels'),
     path('logout/', Logout, name='custom_logout'),
     path('ranking/', Ranking, name='ranking'),
     path('rules/', Rules, name='rules'),
