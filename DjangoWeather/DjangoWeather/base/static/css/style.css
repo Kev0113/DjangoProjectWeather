@@ -99,3 +99,31 @@ button:active{
 .weather:hover{
     cursor: pointer;
 }
+
+.roulette{
+    overflow: hidden;
+    height: 350px;
+    width: 750px;
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1000%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.roulette .images-container.spin {
+    animation: spin 2s infinite linear;
+}

@@ -26,7 +26,51 @@
     <h1> MISE : {{ data.bet }} </h1>
     <h1> WEATHER : {{ data.weather }} </h1>
 
-    <button onclick="lancers()" id="lancer">Récupérer les gains</button>
+<!--    <button onclick="lancers()" id="lancer">Récupérer les gains</button>-->
+
+
+    <div class="roulette">
+        <div class="images-container" style="width: 100%">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+        </div>
+        <div class="images-container" style="width: 100%">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+        </div>
+        <div class="images-container" style="width: 100%">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+        </div>
+    </div>
+
+    <button id="lancer" onclick="lancers()" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+
+
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}"></script>
@@ -34,15 +78,57 @@
     let countLancer = 3
     let game = true
     let lancer = document.getElementById("countlancer")
+
+
     function lancers() {
-    if (game) {
-        if (countLancer === 0) {
-            game = false;
-        } else {
-            countLancer--;
+        console.log('Start')
+        if (game) {
+            if (countLancer === 0) {
+                game = false;
+            } else {
+                countLancer--;
+                spinAnimation()
+            }
+            lancer.textContent = countLancer + " lancers";
         }
-        lancer.textContent = countLancer + " lancers";
     }
-}
+
+    function spinAnimation(){
+        var imagesContainer = document.querySelectorAll('.images-container');
+        imagesContainer[0].classList.add('spin')
+        setTimeout(() => {
+            imagesContainer[1].classList.add('spin')
+        },600)
+        setTimeout(() => {
+            imagesContainer[2].classList.add('spin')
+        },1200)
+        setTimeout(() => {
+            imagesContainer[0].classList.remove('spin')
+            imagesContainer[0].querySelector('img').src = getSrcImage(document.querySelector('#roulette').innerHTML)
+        },2200)
+        setTimeout(() => {
+            imagesContainer[1].classList.remove('spin')
+            imagesContainer[1].querySelector('img').src = getSrcImage(document.querySelector('#roulette2').innerHTML)
+        },2800)
+        setTimeout(() => {
+            imagesContainer[2].classList.remove('spin')
+            imagesContainer[2].querySelector('img').src = getSrcImage(document.querySelector('#roulette3').innerHTML)
+        },3400)
+    }
+
+    function getSrcImage(weatherName){
+        if (weatherName === "Soleil"){
+            return "/static/images/sun.png"
+        }else if (weatherName === "Nuages"){
+            return "/static/images/cloud.png"
+        }else if (weatherName === "Pluie"){
+            return "/static/images/rain.webp"
+        }else if (weatherName === "Orage"){
+            return "/static/images/stormwebp.webp"
+        }else if(weatherName === "Vent"){
+            return "/static/images/stormwebp.webp"
+        }
+    }
+
 </script>
 </body>
