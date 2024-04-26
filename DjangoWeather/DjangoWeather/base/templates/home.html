@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    {% block title %} {% endblock %}
+{% extends 'layout/layout.html' %}
 
-</head>
-<body>
-    <audio id="audio" style="display: none;">
-  <source src="{% static 'sound/SuperMario64-snowmountain.mp3' %}" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+{% block content %}
+<h1 style="text-align: center; margin-top: 64px">Le Casino de la Météo !</h1>
 
-<button id="playButton">Lire</button>
-
-<script>
-document.getElementById("playButton").addEventListener("click", function() {
-  var audio = document.getElementById("audio");
-  audio.play();
-});
-</script>
-    <div class="moneyUser">
-
+<section class="containerRanking">
+    <div class="ranking">
+        {% if ranking %}
+            {% for userRank in ranking %}
+                <div class="userRank">
+                    <div style="width: 50%">
+                        <p style="text-align: center; font-weight: bold">{{ forloop.counter }}</p>
+                    </div>
+                    <div style="width: 100%">
+                        <p>{{ userRank.user.username }}</p>
+                    </div>
+                    <div style="width: 100%">
+                        <p>{{ userRank.money }} €</p>
+                    </div>
+            </div>
+            {% endfor %}
+        {% endif %}
     </div>
+</section>
+
+<section class="footer">
+    <a href="/rules">
+        <button style="font-size: 16px;padding-inline: 32px;">Règles !</button>
+    </a>
+    <a href="/play">
+        <button style="font-size: 24px;padding-inline: 124px;">JOUER !</button>
+    </a>
+    <a href="/ranking">
+        <button style="font-size: 16px;padding-inline: 32px;">Classement !</button>
+    </a>
+</section>
+{% endblock %}
 
 
-    <h1>Le Casino de la Météo !</h1>
-
-
-
-</body>
