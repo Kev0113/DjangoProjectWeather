@@ -87,7 +87,10 @@ def Wheels(self):
 def Game(request):
     if request.method == 'POST':
         data = request.POST
-    return render(request, 'game.html', {'data': data})
+    gain = 0
+    user = UserMoney.objects.get(user=request.user)
+    Moneyuser = user.money
+    return render(request, 'game.html', {'data': data, 'gain': gain, "money": Moneyuser})
 
 def AuthView(request):
     if request.method == 'POST':

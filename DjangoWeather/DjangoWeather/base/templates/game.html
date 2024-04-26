@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    {% block title %} {% endblock %}
+{% extends 'layout/layout.html' %}
 
-</head>
-<body>
+{% block content %}
+
     <h1>Misez !</h1>
     <ul>
     {% for event in events %}
@@ -25,11 +15,11 @@
 
     <h1> MISE : {{ data.bet }} </h1>
     <h1> WEATHER : {{ data.weather }} </h1>
-
+    <h1> GAIN : {{ gain }} </h1>
     <button onclick="lancers()" id="lancer">Lancer</button>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="{% static 'js/main.js' %}"></script>
+<script src="/static/js/main.js"></script>
 <script>
     let countLancer = 3
     let game = true
@@ -45,4 +35,4 @@
     }
 }
 </script>
-</body>
+{% endblock %}
