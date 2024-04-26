@@ -1,0 +1,12 @@
+body{
+    font-family: Futura;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/fond.jpeg");
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
