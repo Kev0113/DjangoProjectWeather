@@ -1,5 +1,3 @@
-
-
 $('#lancer').click(function() {
     $.ajax({
         url:'/wheels',
@@ -10,7 +8,18 @@ $('#lancer').click(function() {
                 $("#roulette2").text(data.roulette2.nom);
                 $("#roulette3").text(data.roulette3.nom);
             }
-
         }
     })
 })
+
+    $("#recup").click(function(){
+            $.ajax({
+                url: '/gain/',
+                type: 'GET',
+                data: {'gain': gain},
+                success: function(response) {
+                    $("#money").text(response.usermoney)
+                }
+            });
+})
+

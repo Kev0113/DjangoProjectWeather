@@ -23,6 +23,7 @@ urlpatterns = [
     path('', Home, name='home'),
     path('game/', Game, name='game'),
     path('wheels/', Wheels, name='wheels'),
+    path('gain/', Gain, name='gain'),
     path('logout/', Logout, name='custom_logout'),
     path('ranking/', Ranking, name='ranking'),
     path('rules/', Rules, name='rules'),

@@ -15,7 +15,7 @@
 
     <h1> MISE : {{ data.bet }} </h1>
     <h1> WEATHER : {{ data.weather }} </h1>
-    <h1> GAIN : {{ gain }} </h1>
+    <h1 id="gain"></h1>
 
 <!--    <button onclick="lancers()" id="lancer">Récupérer les gains</button>-->
 
@@ -60,6 +60,10 @@
     </div>
 
     <button id="lancer" onclick="lancers()" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+<a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
+{% csrf_token %}
+<input id="sendgain" type="hidden" name="gain">
+<button id="recup" type="submit" style="font-size: 24px; padding-inline: 78px">Récupérer les gains</button>
 
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -68,10 +72,9 @@
     let countLancer = 3
     let game = true
     let lancer = document.getElementById("countlancer")
-
-
+    let gain = 10
+    document.getElementById("gain").textContent = "GAIN :" + gain
     function lancers() {
-        console.log('Start')
         if (game) {
             if (countLancer === 0) {
                 game = false;

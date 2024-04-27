@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 from .models import UserMoney
 from .models import Event
 from random import randint
@@ -58,7 +59,7 @@ def Wheel(self):
 def Wheels(self):
     roulette1 = Wheel(self)
     r1 = {
-        'nom' : roulette1.nom,
+        'nom': roulette1.nom,
         'multiplicateur': roulette1.multiplicateur,
         'lancers': roulette1.lancers,
         'probabilite': roulette1.probabilite,
@@ -84,13 +85,26 @@ def Wheels(self):
     }
     return JsonResponse(event_data)
 
+def Gain(request):
+    if request.method == 'GET':
+        data = request.GET
+        user = UserMoney.objects.get(user=request.user)
+        user.money += int(data.get('gain', None))
+        user.save()
+        print(user.money)
+        new_money = {
+            'usermoney': user.money,
+            'gain': data.get('gain', None)
+        }
+        return JsonResponse(new_money)
+    else:
+        return JsonResponse({'error': 'Méthode non autorisée'}, status=405)
 def Game(request):
     if request.method == 'POST':
         data = request.POST
-    gain = 0
     user = UserMoney.objects.get(user=request.user)
     Moneyuser = user.money
-    return render(request, 'game.html', {'data': data, 'gain': gain, "money": Moneyuser})
+    return render(request, 'game.html', {'data': data, 'money': Moneyuser})
 
 def AuthView(request):
     if request.method == 'POST':
