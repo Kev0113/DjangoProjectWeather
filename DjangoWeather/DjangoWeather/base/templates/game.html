@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h1>Misez !</h1>
+    <h1>C'est parti !</h1>
     <ul>
     {% for event in events %}
         <li>{{ event.nom }}</li>
@@ -11,20 +11,29 @@
     <h1 id="roulette"></h1>
     <h1 id="roulette2"></h1>
     <h1 id="roulette3"></h1>
-    <p id="countlancer">3 lancers</p>
+    <p id="countlancer"></p>
 
-    <h1> MISE : {{ data.bet }} </h1>
-    <h1> WEATHER : {{ data.weather }} </h1>
+    <h1> MISE : <p id="mise">{{ data.bet }}</p> </h1>
+    <h1> WEATHER : <p id="betweather">{{ data.weather }}</p> </h1>
     <h1 id="gain"></h1>
-
-<!--    <button onclick="lancers()" id="lancer">Récupérer les gains</button>-->
-
 
     <div class="roulette">
         <div class="images-container" style="width: 100%">
             <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+        </div>
+        <div class="images-container" style="width: 100%">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
@@ -39,27 +48,16 @@
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
-        </div>
-        <div class="images-container" style="width: 100%">
-            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
         </div>
     </div>
 
-    <button id="lancer" onclick="lancers()" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+    <button id="lancer" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
 <a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
 {% csrf_token %}
 <input id="sendgain" type="hidden" name="gain">
@@ -71,57 +69,10 @@
 <script>
     let countLancer = 3
     let game = true
-    let lancer = document.getElementById("countlancer")
-    let gain = 10
-    document.getElementById("gain").textContent = "GAIN :" + gain
-    function lancers() {
-        if (game) {
-            if (countLancer === 0) {
-                game = false;
-            } else {
-                countLancer--;
-                spinAnimation()
-            }
-            lancer.textContent = countLancer + " lancers";
-        }
-    }
-
-    function spinAnimation(){
-        var imagesContainer = document.querySelectorAll('.images-container');
-        imagesContainer[0].classList.add('spin')
-        setTimeout(() => {
-            imagesContainer[1].classList.add('spin')
-        },600)
-        setTimeout(() => {
-            imagesContainer[2].classList.add('spin')
-        },1200)
-        setTimeout(() => {
-            imagesContainer[0].classList.remove('spin')
-            imagesContainer[0].querySelector('img').src = getSrcImage(document.querySelector('#roulette').innerHTML)
-        },2200)
-        setTimeout(() => {
-            imagesContainer[1].classList.remove('spin')
-            imagesContainer[1].querySelector('img').src = getSrcImage(document.querySelector('#roulette2').innerHTML)
-        },2800)
-        setTimeout(() => {
-            imagesContainer[2].classList.remove('spin')
-            imagesContainer[2].querySelector('img').src = getSrcImage(document.querySelector('#roulette3').innerHTML)
-        },3400)
-    }
-
-    function getSrcImage(weatherName){
-        if (weatherName === "Soleil"){
-            return "/static/images/sun.png"
-        }else if (weatherName === "Nuages"){
-            return "/static/images/cloud.png"
-        }else if (weatherName === "Pluie"){
-            return "/static/images/rain.webp"
-        }else if (weatherName === "Orage"){
-            return "/static/images/stormwebp.webp"
-        }else if(weatherName === "Vent"){
-            return "/static/images/stormwebp.webp"
-        }
-    }
+    let gain = 0
+    let mise = parseInt(document.getElementById("mise").innerText)
+    let betweather = document.getElementById("betweather").innerText
+    let ajout = mise
 
 </script>
 {% endblock %}

@@ -61,21 +61,33 @@ def Wheels(self):
     r1 = {
         'nom': roulette1.nom,
         'multiplicateur': roulette1.multiplicateur,
+        'multiplicateur2': roulette1.multiplicateur_two,
+        'multiplicateur3': roulette1.multiplicateur_three,
         'lancers': roulette1.lancers,
+        'lancers2': roulette1.lancers_two,
+        'lancers3': roulette1.lancers_three,
         'probabilite': roulette1.probabilite,
     }
     roulette2 = Wheel(self)
     r2 = {
         'nom': roulette2.nom,
         'multiplicateur': roulette2.multiplicateur,
+        'multiplicateur2': roulette2.multiplicateur_two,
+        'multiplicateur3': roulette2.multiplicateur_three,
         'lancers': roulette2.lancers,
+        'lancers2': roulette2.lancers_two,
+        'lancers3': roulette2.lancers_three,
         'probabilite': roulette2.probabilite,
     }
     roulette3 = Wheel(self)
     r3 = {
         'nom': roulette3.nom,
         'multiplicateur': roulette3.multiplicateur,
+        'multiplicateur2': roulette3.multiplicateur_two,
+        'multiplicateur3': roulette3.multiplicateur_three,
         'lancers': roulette3.lancers,
+        'lancers2': roulette3.lancers_two,
+        'lancers3': roulette3.lancers_three,
         'probabilite': roulette3.probabilite,
     }
     event_data = {
@@ -89,9 +101,8 @@ def Gain(request):
     if request.method == 'GET':
         data = request.GET
         user = UserMoney.objects.get(user=request.user)
-        user.money += int(data.get('gain', None))
+        user.money += float(data.get('gain', None))
         user.save()
-        print(user.money)
         new_money = {
             'usermoney': user.money,
             'gain': data.get('gain', None)
@@ -100,11 +111,15 @@ def Gain(request):
     else:
         return JsonResponse({'error': 'Méthode non autorisée'}, status=405)
 def Game(request):
+    data = None
     if request.method == 'POST':
         data = request.POST
+    if(data == None):
+        return redirect('/play')
     user = UserMoney.objects.get(user=request.user)
-    Moneyuser = user.money
-    return render(request, 'game.html', {'data': data, 'money': Moneyuser})
+    user.money -= int(data.get('bet', None))
+    user.save()
+    return render(request, 'game.html', {'data': data, 'money': user.money})
 
 def AuthView(request):
     if request.method == 'POST':
