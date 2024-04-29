@@ -127,3 +127,7 @@ button:active{
 .roulette .images-container.spin {
     animation: spin 2s infinite linear;
 }
+
+/*.images-container img {*/
+/*    background: white;*/
+/*}*/

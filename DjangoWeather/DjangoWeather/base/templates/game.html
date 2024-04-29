@@ -11,27 +11,27 @@
     {% block title %} {% endblock %}
 
 </head>
-<body>
+<body style="height: 100%; width: 100%">
     <h1>Misez !</h1>
     <ul>
     {% for event in events %}
         <li>{{ event.nom }}</li>
     {% endfor %}
     </ul>
-    <h1 id="roulette"></h1>
-    <h1 id="roulette2"></h1>
-    <h1 id="roulette3"></h1>
+
+    <div style="display: none">
+        <h1 id="roulette"></h1>
+        <h1 id="roulette2"></h1>
+        <h1 id="roulette3"></h1>
+    </div>
     <p id="countlancer">3 lancers</p>
 
     <h1> MISE : {{ data.bet }} </h1>
     <h1> WEATHER : {{ data.weather }} </h1>
 
-<!--    <button onclick="lancers()" id="lancer">Récupérer les gains</button>-->
-
-
     <div class="roulette">
-        <div class="images-container" style="width: 100%">
-            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+        <div class="images-container" style="width: 100%;">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain;" src="/static/images/sun.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
@@ -68,7 +68,11 @@
         </div>
     </div>
 
-    <button id="lancer" onclick="lancers()" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+    <button id="lancer" onclick="lancers()" style="z-index: 99; position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+
+<!--    <div style="height: 100%; position: absolute; top: 0; left: 50%; transform: translateX(-50%)">-->
+<!--        <img src="/static/images/mach.png" alt="" style="height: 100%">-->
+<!--    </div>-->
 
 
 
