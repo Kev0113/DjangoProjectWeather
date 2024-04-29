@@ -10,19 +10,16 @@
 
 
     <section id="weatherBet" style="display: flex; gap: 16px">
-        <div class="weather" data-weather="sun">
+        <div class="weather" data-weather="Soleil">
             <img style="width: 150px;" src="/static/images/sun.png" alt="">
         </div>
-        <div class="weather" data-weather="cloud">
+        <div class="weather" data-weather="Nuages">
             <img style="width: 150px;" src="/static/images/cloud.png" alt="">
         </div>
-        <div class="weather" data-weather="rain">
+        <div class="weather" data-weather="Pluie">
             <img style="width: 150px;" src="/static/images/rain.webp" alt="">
         </div>
-        <div class="weather" data-weather="storm">
-            <img style="width: 150px;" src="/static/images/stormwebp.webp" alt="">
-        </div>
-        <div class="weather" data-weather="tornado">
+        <div class="weather" data-weather="Vent">
             <img style="width: 150px;" src="/static/images/tornado.webp" alt="">
         </div>
     </section>
@@ -32,7 +29,7 @@
             {% csrf_token %}
             <input id="inputWeather" name="weather">
             <input id="bet" type="number" placeholder="Mise" name="bet">
-            <button id="betRedirect" type="submit">Lancer ! </button>
+            <button id="betRedirect" type="submit">Lancer !</button>
         </form>
     </section>
 
@@ -52,7 +49,6 @@
             });
             currentWeather = weather.target.closest('.weather').getAttribute('data-weather')
             weather.target.closest('.weather').style.border = '5px solid black'
-
             inputWeather.value = currentWeather
         })
     })

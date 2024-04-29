@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 from .models import UserMoney
 from .models import Event
 from random import randint
@@ -58,23 +59,35 @@ def Wheel(self):
 def Wheels(self):
     roulette1 = Wheel(self)
     r1 = {
-        'nom' : roulette1.nom,
+        'nom': roulette1.nom,
         'multiplicateur': roulette1.multiplicateur,
+        'multiplicateur2': roulette1.multiplicateur_two,
+        'multiplicateur3': roulette1.multiplicateur_three,
         'lancers': roulette1.lancers,
+        'lancers2': roulette1.lancers_two,
+        'lancers3': roulette1.lancers_three,
         'probabilite': roulette1.probabilite,
     }
     roulette2 = Wheel(self)
     r2 = {
         'nom': roulette2.nom,
         'multiplicateur': roulette2.multiplicateur,
+        'multiplicateur2': roulette2.multiplicateur_two,
+        'multiplicateur3': roulette2.multiplicateur_three,
         'lancers': roulette2.lancers,
+        'lancers2': roulette2.lancers_two,
+        'lancers3': roulette2.lancers_three,
         'probabilite': roulette2.probabilite,
     }
     roulette3 = Wheel(self)
     r3 = {
         'nom': roulette3.nom,
         'multiplicateur': roulette3.multiplicateur,
+        'multiplicateur2': roulette3.multiplicateur_two,
+        'multiplicateur3': roulette3.multiplicateur_three,
         'lancers': roulette3.lancers,
+        'lancers2': roulette3.lancers_two,
+        'lancers3': roulette3.lancers_three,
         'probabilite': roulette3.probabilite,
     }
     event_data = {
@@ -84,10 +97,29 @@ def Wheels(self):
     }
     return JsonResponse(event_data)
 
+def Gain(request):
+    if request.method == 'GET':
+        data = request.GET
+        user = UserMoney.objects.get(user=request.user)
+        user.money += float(data.get('gain', None))
+        user.save()
+        new_money = {
+            'usermoney': user.money,
+            'gain': data.get('gain', None)
+        }
+        return JsonResponse(new_money)
+    else:
+        return JsonResponse({'error': 'Méthode non autorisée'}, status=405)
 def Game(request):
+    data = None
     if request.method == 'POST':
         data = request.POST
-    return render(request, 'game.html', {'data': data})
+    if(data == None):
+        return redirect('/play')
+    user = UserMoney.objects.get(user=request.user)
+    user.money -= int(data.get('bet', None))
+    user.save()
+    return render(request, 'game.html', {'data': data, 'money': user.money})
 
 def AuthView(request):
     if request.method == 'POST':

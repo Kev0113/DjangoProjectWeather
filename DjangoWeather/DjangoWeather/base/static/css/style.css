@@ -116,18 +116,16 @@ button:active{
     0% {
         transform: translateY(0);
     }
-    50% {
+
+    50%{
         transform: translateY(-1000%);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
 
 .roulette .images-container.spin {
-    animation: spin 2s infinite linear;
+    animation: spin 2s ease-in-out;
 }
-
-/*.images-container img {*/
-/*    background: white;*/
-/*}*/
