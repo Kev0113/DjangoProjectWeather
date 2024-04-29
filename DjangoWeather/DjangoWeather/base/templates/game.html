@@ -16,11 +16,8 @@
         <h1 id="roulette2"></h1>
         <h1 id="roulette3"></h1>
     </div>
+
     <p id="countlancer">3 lancers</p>
-
-    <h1> MISE : {{ data.bet }} </h1>
-    <h1> WEATHER : {{ data.weather }} </h1>
-
 
     <h1> MISE : <p id="mise">{{ data.bet }}</p> </h1>
     <h1> WEATHER : <p id="betweather">{{ data.weather }}</p> </h1>
@@ -68,16 +65,10 @@
 
     <button id="lancer" onclick="lancers()" style="z-index: 99; position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
 
-<!--    <div style="height: 100%; position: absolute; top: 0; left: 50%; transform: translateX(-50%)">-->
-<!--        <img src="/static/images/mach.png" alt="" style="height: 100%">-->
-<!--    </div>-->
-
-<!--<button id="lancer" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>-->
-
-<a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
-{% csrf_token %}
-<input id="sendgain" type="hidden" name="gain">
-<button id="recup" type="submit" style="font-size: 24px; padding-inline: 78px">Récupérer les gains</button>
+    <a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
+    {% csrf_token %}
+    <input id="sendgain" type="hidden" name="gain">
+    <button id="recup" type="submit" style="font-size: 24px; padding-inline: 78px">Récupérer les gains</button>
 
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
