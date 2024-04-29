@@ -41,8 +41,8 @@ $('#lancer').click(function() {
                     }
                     countLancer += resultat.lancers_bonus
                     console.log(countLancer)
-                    $("#countlancer").text("Lancers : " + countLancer);
-                    $("#gain").text("Gain : " + gain);
+                    $("#countlancer").text(countLancer);
+                    $("#gain").text(gain + " €");
                 }
             }
         }
