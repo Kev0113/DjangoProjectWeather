@@ -326,7 +326,31 @@
     <div id="btnZone" style="height: 50px; width: 100%; display: flex; position: absolute; bottom: 100px; justify-content: center; gap: 16px; z-index: 99">
         <button id="recup" type="" style="padding-inline: 25px; display: none; font-size: 24px">Récupérer les gains</button>
         <button id="lancer" style="padding-inline: 75px; font-size: 24px">Lancer</button>
-<!--        <button id="rejouer" style="padding-inline: 50px; display: none;  font-size: 24px">Rejouer</button>-->
+    </div>
+
+    <div id="nuageEvent" class="modal" style='background-image: url("../static/images/nuageEvent.gif"); display: none'>
+        <div class="container">
+            <h1>Mystérieux brouillard</h1>
+            <div id="resultBrouillard" style="display: none">
+                <h1>Vous avez misé sur</h1>
+                <p id="yourMise">12°</p>
+
+                <h1>Résultat</h1>
+                <p id="resultTemp">15°</p>
+            </div>
+            <div>
+                <h1 id="gainTemp" style="display: none">Gain : 32 €</h1>
+            </div>
+            <div class="formTemp">
+                <div id="miseTemp">
+                    <input class="valueTemp" type="number" placeholder="TEMPERATURE" required>
+                    <button class="inputBtnTemp" type="submit" style="font-size: 24px; padding: 16px">OK</button>
+                </div>
+                <div class="closeBtn" style="display: none">
+                    <button class="closeModal" type="submit" style="font-size: 16px; padding: 16px; padding-inline: 64px" data-popup="nuageEvent">FERMER</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -368,6 +392,7 @@
     let betweather = document.getElementById("betweather").innerText
     let ajout = mise
     let recupGain = false
+    let countTemp = 0
 
 </script>
 {% endblock %}

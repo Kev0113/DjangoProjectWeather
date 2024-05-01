@@ -53,6 +53,11 @@ $('#lancer').click(function() {
                     $("#countlancer").text(countLancer);
                     $("#gain").text(gain + " €");
 
+                    if (data.roulette1.nom === "Nuages" && data.roulette2.nom === "Nuages" && data.roulette3.nom === "Nuages"){
+                        $('#nuageEvent').show()
+                    }
+
+
                     gainPreview(gainBrut, resultat.lancers_bonus)
                     onChangeCountLancer(countLancer)
                 }
@@ -78,7 +83,6 @@ function gainPreview(gainNumber, lancerNumber){
 
 function onChangeCountLancer(newValue){
     if (newValue === 0){
-        $('#rejouer').show()
         $('#lancer').hide()
         $('#recup').show()
     }
@@ -173,5 +177,47 @@ $("#recup").click(function(){
     recupGain = true
     $("#recup").hide()
     window.location.href = '/play'
+})
+
+$('.inputBtnTemp').click(function () {
+    let miseTemp = parseInt(document.querySelector('.valueTemp').value)
+    if (parseInt(miseTemp) !== NaN){
+        document.querySelector('#miseTemp').style.display = 'none'
+        document.querySelector('#resultBrouillard').style.display = ''
+        document.querySelector('#yourMise').innerHTML = miseTemp + '°'
+
+        let intervalId = setInterval(updateCounter, 100);
+        setTimeout(() => {
+            let temperature = Math.floor(Math.random() * 18);
+            clearInterval(intervalId);
+
+            document.getElementById("resultTemp").innerText = temperature + '°';
+            document.querySelector('#gainTemp').style.display = ""
+
+            if(temperature === miseTemp){
+                let gainTemp = mise * 5
+                document.querySelector('#gainTemp').innerHTML = "Gain : " + gainTemp + " €"
+                gain += gainTemp
+                document.querySelector('#gain').innerHTML = gain + " €"
+            }else if(temperature !== miseTemp){
+                document.querySelector('#gainTemp').innerHTML = "Perdu.."
+            }
+            document.querySelector('.closeBtn').style.display = ''
+        }, 5000)
+    }
+})
+
+function updateCounter() {
+    countTemp += 1;
+    document.getElementById("resultTemp").innerText = countTemp + '°';
+
+    if (countTemp >= 17 || countTemp <= 0) {
+        countTemp = 1;
+    }
+}
+
+
+$('.closeModal').click(function (event) {
+    $('#nuageEvent').hide()
 })
 
