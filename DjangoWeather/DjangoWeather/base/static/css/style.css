@@ -312,3 +312,23 @@ button:active{
     width: 282px;
 }
 
+.active{
+    display: block !important;
+    animation: animateTest 3s linear;
+}
+
+@keyframes animateTest {
+    0% {
+        transform: translateY(100%);
+    }
+    10%{
+        transform: translateY(0);
+    }
+    90%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+

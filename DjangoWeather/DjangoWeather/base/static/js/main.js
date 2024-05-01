@@ -31,22 +31,30 @@ $('#lancer').click(function() {
                     } else if (compteur === 3) {
                         multiplicateur += compteur
                     }
+
                     let ajout = mise
+                    let gainBrut = 0
+
                     if (gain === 0 && multiplicateur != 1) {
                         ajout = mise * multiplicateur
                         gain += parseInt(ajout)
+                        gainBrut = ajout
                     } else if (0 < multiplicateur && multiplicateur < 1) {
                         gain += parseInt(mise * multiplicateur);
+                        gainBrut = mise * multiplicateur
                     } else if (multiplicateur === 0){
                         gain = 0
+                        gainBrut = 0
                     } else {
                         gain += parseInt(mise * multiplicateur)
+                        gainBrut = mise * multiplicateur
                     }
 
                     countLancer += resultat.lancers_bonus
                     $("#countlancer").text(countLancer);
                     $("#gain").text(gain + " €");
 
+                    gainPreview(gainBrut, resultat.lancers_bonus)
                     onChangeCountLancer(countLancer)
                 }
             }
@@ -58,6 +66,21 @@ $('#rejouer').click(function (){
     window.location.href = '/play'
 })
 
+
+function gainPreview(gainNumber, lancerNumber){
+    let gainPreview = document.querySelector('#gainPreview')
+    gainPreview.innerHTML = '+ ' + gainNumber + ' €'
+    gainPreview.classList.add('active')
+
+    let lancerPreview = document.querySelector('#lancerPreview')
+    lancerPreview.innerHTML = '+ ' + lancerNumber
+    lancerPreview.classList.add('active')
+
+    setTimeout(() => {
+        gainPreview.classList.remove('active')
+        lancerPreview.classList.remove('active')
+    }, 3000)
+}
 
 function onChangeCountLancer(newValue){
     if (newValue === 0){
