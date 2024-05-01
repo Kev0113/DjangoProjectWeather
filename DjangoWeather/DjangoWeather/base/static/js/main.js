@@ -13,7 +13,6 @@ $('#lancer').click(function() {
                     $("#roulette2").text(data.roulette2.nom);
                     $("#roulette3").text(data.roulette3.nom);
                     let resultat = AnalyzeLancers(data.roulette1, data.roulette2, data.roulette3)
-                    console.log(resultat)
                     let liste = [data.roulette1.nom, data.roulette2.nom, data.roulette3.nom];
                     let compteur = 0;
                     for (let i = 0; i < liste.length; i++) {
@@ -61,11 +60,6 @@ $('#lancer').click(function() {
         }
     })
 })
-
-$('#rejouer').click(function (){
-    window.location.href = '/play'
-})
-
 
 function gainPreview(gainNumber, lancerNumber){
     let gainPreview = document.querySelector('#gainPreview')
@@ -166,13 +160,18 @@ function AnalyzeLancers(roulette1, roulette2, roulette3){
 }
 
 $("#recup").click(function(){
-    $.ajax({
-        url: '/gain/',
-        type: 'GET',
-        data: {'gain': gain},
-        success: function(response) {
-            $("#money").text(response.usermoney + " €")
-        }
-    });
+    if (recupGain === false){
+        $.ajax({
+            url: '/gain/',
+            type: 'GET',
+            data: {'gain': gain},
+            success: function(response) {
+                $("#money").text(response.usermoney + " €")
+            }
+        });
+    }
+    recupGain = true
+    $("#recup").hide()
+    window.location.href = '/play'
 })
 
