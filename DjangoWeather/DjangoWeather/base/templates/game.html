@@ -4,7 +4,7 @@
     <h1>Misez !</h1>
 {% block content %}
 
-    <h1>C'est parti !</h1>
+    <h1>.</h1>
     <ul>
     {% for event in events %}
         <li>{{ event.nom }}</li>
@@ -17,14 +17,273 @@
         <h1 id="roulette3"></h1>
     </div>
 
-    <p id="countlancer">3 lancers</p>
+    <div id="compteRenduGain">
+        <section id="weatherBet" style="margin-top: 0">
+            <div class="weather" style="height: 182px;" data-weather="Soleil">
+                <div class="weatherTitle">
+                    <h1>Ensoleillé</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>5,5</strong>
+                            </p>
+                            <p>
+                                Lancer + 1
+                            </p>
+                        </div>
+                        <div>
+                            <p>1%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>11,5</strong>
+                            </p>
+                            <p>
+                                Lancer + 3
+                            </p>
+                        </div>
+                        <div>
+                            <p>0,01%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>18</strong>
+                            </p>
+                            <p>
+                                Lancer + 5
+                            </p>
+                        </div>
+                        <div>
+                            <p>0,0001%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <h1> MISE : <p id="mise">{{ data.bet }}</p> </h1>
-    <h1> WEATHER : <p id="betweather">{{ data.weather }}</p> </h1>
-    <h1 id="gain"></h1>
+
+
+            <div class="weather" style="height: 182px;" data-weather="Pluie" >
+                <div class="weatherTitle">
+                    <h1>Pluvieux</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>30%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Lancer + 1
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>9%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                lancer + 2
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>2,7%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="weather" style="height: 182px;" data-weather="Nuages">
+                <div class="weatherTitle">
+                    <h1>Nuageux</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>30%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>9%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Mystérieux
+                            </p>
+                            <p>
+                                brouillard
+                            </p>
+                        </div>
+                        <div>
+                            <p>2,7%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="weather" style="height: 182px;" data-weather="Vent">
+                <div class="weatherTitle">
+                    <h1>Venteux</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>15%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>1,5</strong>
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>2,25%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>3</strong>
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>0,3375%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <section id="recap" style="position: absolute; right: 0; top: 58%">
+        <h1 style="text-align: center">ÉVÉNEMENTS PERTURBATEURS (20%)</h1>
+        <div class="event">
+            <div>
+                <img src="/static/images/stormwebp.webp" alt="">
+            </div>
+            <div>
+                <div>
+                    <h1>Orage (10%)</h1>
+                </div>
+                <div>
+                    <p>Accumulez-en au moins deux pour perdre tous vos gains. (1%)</p>
+                </div>
+            </div>
+        </div>
+        <div class="event">
+            <div>
+                <img src="/static/images/chance.png" alt="">
+            </div>
+            <div>
+                <div>
+                    <h1>Chance (10%)</h1>
+                </div>
+                <div>
+                    <p>Accumulez-en trois pour multiplier vos gains aléatoirement (x0-10).</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="roulette">
-        <div class="images-container" style="width: 100%">
+        <div class="images-container" style="width: 100%;">
             <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
@@ -56,7 +315,8 @@
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
             <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
@@ -64,11 +324,63 @@
     </div>
 
     <button id="lancer" style="z-index: 99; position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+    <div id="btnZone" style="height: 50px; width: 100%; display: flex; position: absolute; bottom: 100px; justify-content: center; gap: 16px; z-index: 99">
+        <button id="recup" type="" style="padding-inline: 25px; display: none; font-size: 24px">Récupérer les gains</button>
+        <button id="lancer" style="padding-inline: 75px; font-size: 24px">Lancer</button>
+    </div>
 
-    <a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
+    <div id="nuageEvent" class="modal" style='background-image: url("../static/images/nuageEvent.gif"); display: none'>
+        <div class="container">
+            <h1>Mystérieux brouillard</h1>
+            <div id="resultBrouillard" style="display: none">
+                <h1>Vous avez misé sur</h1>
+                <p id="yourMise">12°</p>
+
+                <h1>Résultat</h1>
+                <p id="resultTemp">15°</p>
+            </div>
+            <div>
+                <h1 id="gainTemp" style="display: none">Gain : 32 €</h1>
+            </div>
+            <div class="formTemp">
+                <div id="miseTemp">
+                    <input class="valueTemp" type="number" placeholder="TEMPERATURE" required>
+                    <button class="inputBtnTemp" type="submit" style="font-size: 24px; padding: 16px">OK</button>
+                </div>
+                <div class="closeBtn" style="display: none">
+                    <button class="closeModal" type="submit" style="font-size: 16px; padding: 16px; padding-inline: 64px" data-popup="nuageEvent">FERMER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="zone">
+            <h1>Mise :</h1>
+            <p id="mise">{{ data.bet }} €</p>
+        </div>
+        <div class="zone">
+            <h1>Gain :</h1>
+            <p id="gain">0 €</p>
+            <p id="gainPreview" style="position: absolute; top: -34px; left: 27.5%; display: none"> + 5 €</p>
+        </div>
+        <div class="zone">
+            <h1>Pari :</h1>
+            <p id="betweather">{{ data.weather }}</p>
+        </div>
+        <div class="zone">
+            <h1>Lancer restant(s) :</h1>
+            <p id="countlancer">3</p>
+            <p id="lancerPreview" style="position: absolute; top: -34px; left: 68.1%; display: none"> + 5 €</p>
+        </div>
+        <div class="zone">
+            <h1>Solde :</h1>
+            <p>{{ money }} €</p>
+        </div>
+    </footer>
+
     {% csrf_token %}
     <input id="sendgain" type="hidden" name="gain">
-    <button id="recup" type="submit" style="font-size: 24px; padding-inline: 78px">Récupérer les gains</button>
 
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -80,6 +392,8 @@
     let mise = parseInt(document.getElementById("mise").innerText)
     let betweather = document.getElementById("betweather").innerText
     let ajout = mise
+    let recupGain = false
+    let countTemp = 0
 
 </script>
 {% endblock %}

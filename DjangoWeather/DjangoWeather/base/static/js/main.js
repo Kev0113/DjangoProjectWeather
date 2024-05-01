@@ -30,24 +30,63 @@ $('#lancer').click(function() {
                     } else if (compteur === 3) {
                         multiplicateur += compteur
                     }
+
                     let ajout = mise
+                    let gainBrut = 0
+
                     if (gain === 0 && multiplicateur != 1) {
                         ajout = mise * multiplicateur
-                        gain += ajout
+                        gain += parseInt(ajout)
+                        gainBrut = ajout
                     } else if (0 < multiplicateur && multiplicateur < 1) {
-                        gain += gain * multiplicateur;
+                        gain += parseInt(mise * multiplicateur);
+                        gainBrut = mise * multiplicateur
+                    } else if (multiplicateur === 0){
+                        gain = 0
+                        gainBrut = 0
                     } else {
-                        gain *= multiplicateur
+                        gain += parseInt(mise * multiplicateur)
+                        gainBrut = mise * multiplicateur
                     }
+
                     countLancer += resultat.lancers_bonus
-                    console.log(countLancer)
-                    $("#countlancer").text("Lancers : " + countLancer);
-                    $("#gain").text("Gain : " + gain);
+                    $("#countlancer").text(countLancer);
+                    $("#gain").text(gain + " €");
+
+                    if (data.roulette1.nom === "Nuages" && data.roulette2.nom === "Nuages" && data.roulette3.nom === "Nuages"){
+                        $('#nuageEvent').show()
+                    }
+
+
+                    gainPreview(gainBrut, resultat.lancers_bonus)
+                    onChangeCountLancer(countLancer)
                 }
             }
         }
     })
 })
+
+function gainPreview(gainNumber, lancerNumber){
+    let gainPreview = document.querySelector('#gainPreview')
+    gainPreview.innerHTML = '+ ' + gainNumber + ' €'
+    gainPreview.classList.add('active')
+
+    let lancerPreview = document.querySelector('#lancerPreview')
+    lancerPreview.innerHTML = '+ ' + lancerNumber
+    lancerPreview.classList.add('active')
+
+    setTimeout(() => {
+        gainPreview.classList.remove('active')
+        lancerPreview.classList.remove('active')
+    }, 3000)
+}
+
+function onChangeCountLancer(newValue){
+    if (newValue === 0){
+        $('#lancer').hide()
+        $('#recup').show()
+    }
+}
 
  function spinAnimation(){
         var imagesContainer = document.querySelectorAll('.images-container');
@@ -125,13 +164,60 @@ function AnalyzeLancers(roulette1, roulette2, roulette3){
 }
 
 $("#recup").click(function(){
-    $.ajax({
-        url: '/gain/',
-        type: 'GET',
-        data: {'gain': gain},
-        success: function(response) {
-            $("#money").text(response.usermoney + " €")
-        }
-    });
+    if (recupGain === false){
+        $.ajax({
+            url: '/gain/',
+            type: 'GET',
+            data: {'gain': gain},
+            success: function(response) {
+                $("#money").text(response.usermoney + " €")
+            }
+        });
+    }
+    recupGain = true
+    $("#recup").hide()
+    window.location.href = '/play'
+})
+
+$('.inputBtnTemp').click(function () {
+    let miseTemp = parseInt(document.querySelector('.valueTemp').value)
+    if (parseInt(miseTemp) !== NaN){
+        document.querySelector('#miseTemp').style.display = 'none'
+        document.querySelector('#resultBrouillard').style.display = ''
+        document.querySelector('#yourMise').innerHTML = miseTemp + '°'
+
+        let intervalId = setInterval(updateCounter, 100);
+        setTimeout(() => {
+            let temperature = Math.floor(Math.random() * 18);
+            clearInterval(intervalId);
+
+            document.getElementById("resultTemp").innerText = temperature + '°';
+            document.querySelector('#gainTemp').style.display = ""
+
+            if(temperature === miseTemp){
+                let gainTemp = mise * 5
+                document.querySelector('#gainTemp').innerHTML = "Gain : " + gainTemp + " €"
+                gain += gainTemp
+                document.querySelector('#gain').innerHTML = gain + " €"
+            }else if(temperature !== miseTemp){
+                document.querySelector('#gainTemp').innerHTML = "Perdu.."
+            }
+            document.querySelector('.closeBtn').style.display = ''
+        }, 5000)
+    }
+})
+
+function updateCounter() {
+    countTemp += 1;
+    document.getElementById("resultTemp").innerText = countTemp + '°';
+
+    if (countTemp >= 17 || countTemp <= 0) {
+        countTemp = 1;
+    }
+}
+
+
+$('.closeModal').click(function (event) {
+    $('#nuageEvent').hide()
 })
 

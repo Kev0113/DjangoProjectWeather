@@ -119,7 +119,11 @@ def Game(request):
     user = UserMoney.objects.get(user=request.user)
     user.money -= int(data.get('bet', None))
     user.save()
-    return render(request, 'game.html', {'data': data, 'money': user.money})
+
+    if float(data['bet']) <= float(user.money) and float(data['bet']) > 0:
+        return render(request, 'game.html', {'data': data, 'money': user.money})
+    else:
+        return redirect('/play')
 
 def AuthView(request):
     if request.method == 'POST':
