@@ -4,7 +4,7 @@
     <h1>Misez !</h1>
 {% block content %}
 
-    <h1>C'est parti !</h1>
+    <h1>.</h1>
     <ul>
     {% for event in events %}
         <li>{{ event.nom }}</li>
@@ -17,58 +17,316 @@
         <h1 id="roulette3"></h1>
     </div>
 
-    <div style="position: relative; height: 100%; width: 100%">
-        <div class="roulette">
-            <div class="images-container" style="width: 100%; background: white">
-                <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+    <div id="compteRenduGain">
+        <section id="weatherBet" style="margin-top: 0">
+            <div class="weather" style="height: 182px;" data-weather="Soleil">
+                <div class="weatherTitle">
+                    <h1>Ensoleillé</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>5,5</strong>
+                            </p>
+                            <p>
+                                Lancer + 1
+                            </p>
+                        </div>
+                        <div>
+                            <p>1%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>11,5</strong>
+                            </p>
+                            <p>
+                                Lancer + 3
+                            </p>
+                        </div>
+                        <div>
+                            <p>0,01%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>18</strong>
+                            </p>
+                            <p>
+                                Lancer + 5
+                            </p>
+                        </div>
+                        <div>
+                            <p>0,0001%</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="images-container" style="width: 100%; background: white">
-                <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+
+
+
+            <div class="weather" style="height: 182px;" data-weather="Pluie" >
+                <div class="weatherTitle">
+                    <h1>Pluvieux</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>30%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Lancer + 1
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>9%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                lancer + 2
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>2,7%</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="images-container" style="width: 100%; background: white">
-                <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
-                <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+
+
+
+            <div class="weather" style="height: 182px;" data-weather="Nuages">
+                <div class="weatherTitle">
+                    <h1>Nuageux</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>30%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>9%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Mystérieux
+                            </p>
+                            <p>
+                                brouillard
+                            </p>
+                        </div>
+                        <div>
+                            <p>2,7%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="weather" style="height: 182px;" data-weather="Vent">
+                <div class="weatherTitle">
+                    <h1>Venteux</h1>
+                </div>
+                <div class="weatherDetails">
+                    <div class="line">
+                        <div>
+                            <h1>1.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Rien
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>15%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>2.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>1,5</strong>
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>2,25%</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <h1>3.</h1>
+                        </div>
+                        <div>
+                            <p>
+                                Gain x <strong>3</strong>
+                            </p>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div>
+                            <p>0,3375%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <section id="recap" style="position: absolute; right: 0; top: 58%">
+        <h1 style="text-align: center">ÉVÉNEMENTS PERTURBATEURS (20%)</h1>
+        <div class="event">
+            <div>
+                <img src="/static/images/stormwebp.webp" alt="">
+            </div>
+            <div>
+                <div>
+                    <h1>Orage (10%)</h1>
+                </div>
+                <div>
+                    <p>Accumulez-en au moins deux pour perdre tous vos gains. (1%)</p>
+                </div>
             </div>
         </div>
-        <div style="position:absolute; top: 0; height: 750px; width: 100%; z-index: 2">
-            <img src="/static/images/mach3.png" alt="" style="height: 100%; width: 100%; object-fit: contain">
+        <div class="event">
+            <div>
+                <img src="/static/images/chance.png" alt="">
+            </div>
+            <div>
+                <div>
+                    <h1>Chance (10%)</h1>
+                </div>
+                <div>
+                    <p>Accumulez-en trois pour multiplier vos gains aléatoirement (x0-10).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="roulette">
+        <div class="images-container" style="width: 100%;">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+        </div>
+        <div class="images-container" style="width: 100%">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt=""><img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+        </div>
+        <div class="images-container" style="width: 100%">
+            <img id="firstImage" style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/rain.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/stormwebp.webp" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/chance.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/cloud.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/sun.png" alt="">
+            <img style="height: 100%; width: 100%; object-fit: contain" src="/static/images/tornado.webp" alt="">
         </div>
     </div>
 
     <div id="btnZone" style="height: 50px; width: 100%; display: flex; position: absolute; bottom: 100px; justify-content: center; gap: 16px; z-index: 99">
-        <button id="recup" type="" style="padding-inline: 25px">Récupérer les gains</button>
-        <button id="lancer" style="padding-inline: 75px">Lancer</button>
-        <a href="/play" id="rejouer">
-            <button style="padding-inline: 50px">Rejouer</button>
-        </a>
+        <button id="recup" type="" style="padding-inline: 25px; display: none; font-size: 24px">Récupérer les gains</button>
+        <button id="lancer" style="padding-inline: 75px; font-size: 24px">Lancer</button>
+        <button id="rejouer" style="padding-inline: 50px; display: none;  font-size: 24px">Rejouer</button>
     </div>
 
     <footer>
@@ -104,9 +362,10 @@
     let countLancer = 3
     let game = true
     let gain = 0
-    // let mise = parseInt(document.getElementById("mise").innerText)
-    // let betweather = document.getElementById("betweather").innerText
+    let mise = parseInt(document.getElementById("mise").innerText)
+    let betweather = document.getElementById("betweather").innerText
     let ajout = mise
+    let win = false
 
 </script>
 {% endblock %}

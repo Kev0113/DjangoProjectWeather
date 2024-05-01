@@ -13,6 +13,7 @@ $('#lancer').click(function() {
                     $("#roulette2").text(data.roulette2.nom);
                     $("#roulette3").text(data.roulette3.nom);
                     let resultat = AnalyzeLancers(data.roulette1, data.roulette2, data.roulette3)
+                    console.log(resultat)
                     let liste = [data.roulette1.nom, data.roulette2.nom, data.roulette3.nom];
                     let compteur = 0;
                     for (let i = 0; i < liste.length; i++) {
@@ -33,21 +34,38 @@ $('#lancer').click(function() {
                     let ajout = mise
                     if (gain === 0 && multiplicateur != 1) {
                         ajout = mise * multiplicateur
-                        gain += ajout
+                        gain += parseInt(ajout)
                     } else if (0 < multiplicateur && multiplicateur < 1) {
-                        gain += gain * multiplicateur;
+                        gain += parseInt(mise * multiplicateur);
+                    } else if (multiplicateur === 0){
+                        gain = 0
                     } else {
-                        gain *= multiplicateur
+                        gain += parseInt(mise * multiplicateur)
                     }
+
                     countLancer += resultat.lancers_bonus
-                    console.log(countLancer)
                     $("#countlancer").text(countLancer);
                     $("#gain").text(gain + " €");
+
+                    onChangeCountLancer(countLancer)
                 }
             }
         }
     })
 })
+
+$('#rejouer').click(function (){
+    window.location.href = '/play'
+})
+
+
+function onChangeCountLancer(newValue){
+    if (newValue === 0){
+        $('#rejouer').show()
+        $('#lancer').hide()
+        $('#recup').show()
+    }
+}
 
  function spinAnimation(){
         var imagesContainer = document.querySelectorAll('.images-container');

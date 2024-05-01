@@ -120,7 +120,7 @@ def Game(request):
     user.money -= int(data.get('bet', None))
     user.save()
 
-    if float(data['bet']) <= float(user.money) and data['bet'] is not 0:
+    if float(data['bet']) <= float(user.money) and float(data['bet']) > 0:
         return render(request, 'game.html', {'data': data, 'money': user.money})
     else:
         return redirect('/play')

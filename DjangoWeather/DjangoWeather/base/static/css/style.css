@@ -85,27 +85,15 @@ body{
 .roulette{
     overflow: hidden;
     height: 350px;
-    width: 383px;
+    width: 600px;
     display: flex;
     justify-content: space-evenly;
     position: absolute;
     z-index: 1;
-    left: 719px;
+    left: 50%;
     top: 216px;
     transform: translateX(-50%);
 }
-
-/*.roulette{*/
-/*    overflow: hidden;*/
-/*    height: 350px;*/
-/*    width: 750px;*/
-/*    display: flex;*/
-/*    justify-content: space-evenly;*/
-/*    position: absolute;*/
-/*    z-index: 1;*/
-/*    left: 50%;*/
-/*    transform: translateX(-50%);*/
-/*}*/
 
 @keyframes spin2 {
     0% {
@@ -198,6 +186,7 @@ button{
     color: white;
     border: 1px solid  white;
     border-radius: 100px;
+    font-weight: bold;
 }
 
 button i{
@@ -288,7 +277,6 @@ button:active{
     margin-left: 8px;
 }
 
-
 #recap{
     margin-top: 72px !important;
     color: white;
@@ -316,5 +304,11 @@ button:active{
     width: 100%;
 }
 
-
+#compteRenduGain{
+    position: absolute;
+    top: 16px;
+    left: 32px;
+    height: 90%;
+    width: 282px;
+}
 
