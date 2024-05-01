@@ -2,35 +2,304 @@
 
 {% block content %}
 
-    <a href="/">
-        <button style="font-size: 16px;padding-inline: 24px;">HOME</button>
-    </a>
 
-    <h1>Play</h1>
+    <div class="returnHome">
+        <a href="/">
+            <button>
+                <i class='bx bx-chevron-left'></i>
+            </button>
+        </a>
+    </div>
 
+    <div class="titlePage">
+        <h1>QUEL TEMPS FERA-T-IL AUJOURD'HUI ?</h1>
+        <p>Pariez sur le temps qu'il fera !</p>
+    </div>
 
-    <section id="weatherBet" style="display: flex; gap: 16px">
+    <section id="weatherBet">
         <div class="weather" data-weather="Soleil">
-            <img style="width: 150px;" src="/static/images/sun.png" alt="">
+            <div class="weatherTitle">
+                <h1>Ensoleillé</h1>
+            </div>
+            <div class="weatherImage">
+                <img src="/static/images/sun.png" alt="">
+            </div>
+            <div class="weatherDetails">
+                <div class="line">
+                    <div>
+                        <h1>1.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Gain x <strong>5,5</strong>
+                        </p>
+                        <p>
+                            Lancer + 1
+                        </p>
+                    </div>
+                    <div>
+                        <p>1%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>2.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Gain x <strong>11,5</strong>
+                        </p>
+                        <p>
+                            Lancer + 3
+                        </p>
+                    </div>
+                    <div>
+                        <p>0,01%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>3.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Gain x <strong>18</strong>
+                        </p>
+                        <p>
+                            Lancer + 5
+                        </p>
+                    </div>
+                    <div>
+                        <p>0,0001%</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+
+        <div class="weather" data-weather="Pluie" >
+            <div class="weatherTitle">
+                <h1>Pluvieux</h1>
+            </div>
+            <div class="weatherImage">
+                <img src="/static/images/rain.webp" alt="">
+            </div>
+            <div class="weatherDetails">
+                <div class="line">
+                    <div>
+                        <h1>1.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Rien
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>30%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>2.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Lancer + 1
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>9%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>3.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            lancer + 2
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>2,7%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="weather" data-weather="Nuages">
-            <img style="width: 150px;" src="/static/images/cloud.png" alt="">
+            <div class="weatherTitle">
+                <h1>Nuageux</h1>
+            </div>
+            <div class="weatherImage">
+                <img src="/static/images/cloud.png" alt="">
+            </div>
+            <div class="weatherDetails">
+                <div class="line">
+                    <div>
+                        <h1>1.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Rien
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>30%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>2.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Rien
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>9%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>3.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Mystérieux
+                        </p>
+                        <p>
+                            brouillard
+                        </p>
+                    </div>
+                    <div>
+                        <p>2,7%</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="weather" data-weather="Pluie">
-            <img style="width: 150px;" src="/static/images/rain.webp" alt="">
-        </div>
+
+
+
         <div class="weather" data-weather="Vent">
-            <img style="width: 150px;" src="/static/images/tornado.webp" alt="">
+            <div class="weatherTitle">
+                <h1>Venteux</h1>
+            </div>
+            <div class="weatherImage">
+                <img src="/static/images/tornado.webp" alt="">
+            </div>
+            <div class="weatherDetails">
+                <div class="line">
+                    <div>
+                        <h1>1.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Rien
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>15%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>2.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Gain x <strong>1,5</strong>
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>2,25%</p>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <h1>3.</h1>
+                    </div>
+                    <div>
+                        <p>
+                            Gain x <strong>3</strong>
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div>
+                        <p>0,3375%</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </section>
 
-    <section>
+
+    <section id="formMise" style="margin-top: 64px">
         <form action="/game/" method="POST">
             {% csrf_token %}
-            <input id="inputWeather" name="weather">
-            <input id="bet" type="number" placeholder="Mise" name="bet">
-            <button id="betRedirect" type="submit">Lancer !</button>
+            <input id="inputWeather" name="weather" hidden="hidden">
+            <input class="inputBtn" id="bet" type="number" placeholder="VOTRE MISE" name="bet">
+            <button id="betRedirect" type="submit">OK</button>
         </form>
+    </section>
+
+
+    <section id="recap">
+        <h1 style="text-align: center">ÉVÉNEMENTS PERTURBATEURS (20%)</h1>
+        <div class="event">
+            <div>
+                <img src="/static/images/stormwebp.webp" alt="">
+            </div>
+            <div>
+                <div>
+                    <h1>Orage (10%)</h1>
+                </div>
+                <div>
+                    <p>Accumulez-en au moins deux pour perdre tous vos gains. (1%)</p>
+                </div>
+            </div>
+        </div>
+        <div class="event">
+            <div>
+                <img src="/static/images/chance.png" alt="">
+            </div>
+            <div>
+                <div>
+                    <h1>Chance (10%)</h1>
+                </div>
+                <div>
+                    <p>Accumulez-en trois pour multiplier vos gains aléatoirement (x0-10).</p>
+                </div>
+            </div>
+        </div>
     </section>
 
 <script>
@@ -45,10 +314,10 @@
     selectWeather.forEach((e) => {
         e.addEventListener('click', (weather) => {
             selectWeather.forEach((element) => {
-                element.style.border = '';
+                element.style.outline = '';
             });
             currentWeather = weather.target.closest('.weather').getAttribute('data-weather')
-            weather.target.closest('.weather').style.border = '5px solid black'
+            weather.target.closest('.weather').style.outline = '5px solid #FEF994'
             inputWeather.value = currentWeather
         })
     })

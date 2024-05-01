@@ -9,8 +9,9 @@ body{
     margin: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../images/table.jpg");
-    /*background: #3e3e3e;*/
+    /*background-image: url("../images/table.jpg");*/
+    background: rgb(93,154,27);
+    background: radial-gradient(circle, rgba(93,154,27,1) 0%, rgba(16,34,10,1) 100%, rgba(16,34,10,1) 100%);
 }
 
 .moneyUser{
@@ -65,25 +66,6 @@ body{
     left: 50%;
     top: 20%;
     transform: translateX(-50%);
-}
-
-button{
-    border-radius: 5px;
-    background: #b6b600;
-    border: none;
-    padding: 16px;
-    text-transform: uppercase;
-    font-weight: bold;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-}
-
-button:hover{
-    cursor: pointer;
-}
-
-button:active{
-    background: #9e9e00;
-    zoom: 0.99;
 }
 
 .footer{
@@ -169,3 +151,170 @@ footer .zone h1{
 footer .zone p{
     font-size: 24px;
 }
+
+
+/**** PLAY ****/
+.returnHome{
+    position: absolute;
+    top: 32px;
+    left: 32px;
+}
+
+.titlePage{
+    text-align: center;
+    margin-top: 32px;
+    color: white;
+}
+
+#formMise{
+    margin: 0 auto;
+    width: max-content;
+}
+
+input{
+    background: #152b65;
+    padding: 16px;
+    text-align: center;
+    color: white;
+    border: 1px solid  white;
+    border-radius: 100px;
+    font-size: 24px;
+    width: 246px;
+}
+
+input::placeholder{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+form button{
+    font-size: 24px;
+    padding: 16px;
+}
+
+button{
+    background: #152b65;
+    color: white;
+    border: 1px solid  white;
+    border-radius: 100px;
+}
+
+button i{
+    font-size: 54px;
+}
+
+button:hover{
+    cursor: pointer;
+    background: #0a2a63;
+}
+
+button:active{
+    background: #011e51;
+    zoom: 0.99;
+}
+
+#weatherBet{
+    margin-top: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#weatherBet .weather{
+    height: 282px;
+    width: 282px;
+    background: #972A27;
+    outline: 0.5px solid #FEF994;
+    border-radius: 16px;
+}
+#weatherBet .weather .weatherTitle{
+    height: 40px;
+    border-bottom: 0.5px solid white;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#weatherBet .weather .weatherTitle h1{
+    text-align: center;
+    color: white;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+#weatherBet .weather .weatherImage{
+    margin-top: 8px;
+    height: 94px;
+}
+
+#weatherBet .weather .weatherImage img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#weatherBet .weather .weatherDetails{
+    height: 124px;
+    margin-top: 8px;
+}
+
+#weatherBet .weather .weatherDetails .line{
+    height: 41.33px;
+    display: flex;
+    color: white;
+}
+
+#weatherBet strong{
+    color: #FEF994;
+}
+
+#weatherBet .weather .weatherDetails .line div:first-child{
+    width: 50%;
+    text-align: center;
+    line-height: 41px;
+}
+
+#weatherBet .weather .weatherDetails .line div:nth-child(2){
+    width: 100%;
+}
+
+#weatherBet .weather .weatherDetails .line div:last-child{
+    width: 100%;
+    line-height: 41px;
+    font-size: 24px;
+    margin-left: 8px;
+}
+
+
+#recap{
+    margin-top: 72px !important;
+    color: white;
+    margin: 0 auto;
+    width: max-content;
+}
+
+#recap .event{
+    margin-top: 20px;
+    display: flex;
+    height: 70px;
+}
+
+#recap .event div:first-child{
+    width: 40%;
+}
+
+#recap .event div:first-child img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#recap .event div:last-child{
+    width: 100%;
+}
+
+
+
