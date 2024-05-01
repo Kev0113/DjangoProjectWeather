@@ -5,12 +5,22 @@
 
 
 body{
-    font-family: 'Montserrat';
+    font-family: 'Josefin sans';
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: url("../images/table.jpg");
     /*background-image: url("../images/fond.jpeg");*/
+}
+
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 64px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    padding-top: 64px;
+
 }
 
 .moneyUser{
@@ -40,32 +50,7 @@ body{
     border-radius: 100px;
 }
 
-.ranking{
-    background: rgba(0, 0, 0, 0.3);
-    height: 350px;
-    width: 600px;
-    color: white;
-    border-radius: 16px;
-    overflow-y: auto
-}
 
-.ranking .userRank{
-    display: flex;
-    justify-content: space-evenly;
-    padding-block: 25px;
-    border-bottom: 1px solid white;
-}
-
-.ranking .userRank p{
-    text-align: center;
-}
-
-.containerRanking{
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
-}
 
 button{
     border-radius: 5px;
@@ -112,7 +97,7 @@ button:active{
     transform: translateX(-50%);
 }
 
-@keyframes spin {
+@keyframes spin2 {
     0% {
         transform: translateY(0);
     }
@@ -127,5 +112,5 @@ button:active{
 }
 
 .roulette .images-container.spin {
-    animation: spin 2s ease-in-out;
+    animation: spin2 2s linear;
 }

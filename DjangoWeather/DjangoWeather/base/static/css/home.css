@@ -1,0 +1,80 @@
+.cards{
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    height: 100vh;
+}
+
+.cards svg{
+    position: absolute;
+}
+
+#card1{
+    top: 24px;
+    left: 24px;
+}
+
+#card2{
+    top: 24px;
+    right: 24px;
+}
+
+#card3{
+    bottom: 24px;
+    left: 24px;
+}
+
+#card4{
+    bottom: 24px;
+    right: 24px;
+}
+
+h1 strong{
+    color: #152B65
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 96px;
+}
+
+.ranking{
+    background: rgba(0, 0, 0, 0.3);
+    height: 377px;
+    width: 600px;
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 16px;
+    overflow-y: auto
+}
+
+.ranknumber{
+    font-size: 32px;
+    width: 50px;
+}
+
+.ranking h3{
+    font-size: 24px;
+    font-weight: normal;
+    flex-grow: 1;
+}
+
+
+.ranking .userRank{
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    height: 75px;
+    border-bottom: 1px solid white;
+}
+
+.ranking .userRank p{
+    text-align: center;
+}
+
+.containerRanking{
+    border: 2px solid white;
+    border-radius: 16px;
+}

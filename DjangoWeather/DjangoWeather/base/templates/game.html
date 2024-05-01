@@ -1,5 +1,7 @@
 {% extends 'layout/layout.html' %}
 
+<body style="height: 100%; width: 100%">
+    <h1>Misez !</h1>
 {% block content %}
 
     <h1>C'est parti !</h1>
@@ -8,10 +10,14 @@
         <li>{{ event.nom }}</li>
     {% endfor %}
     </ul>
-    <h1 id="roulette"></h1>
-    <h1 id="roulette2"></h1>
-    <h1 id="roulette3"></h1>
-    <p id="countlancer"></p>
+
+    <div style="display: none">
+        <h1 id="roulette"></h1>
+        <h1 id="roulette2"></h1>
+        <h1 id="roulette3"></h1>
+    </div>
+
+    <p id="countlancer">3 lancers</p>
 
     <h1> MISE : <p id="mise">{{ data.bet }}</p> </h1>
     <h1> WEATHER : <p id="betweather">{{ data.weather }}</p> </h1>
@@ -57,11 +63,12 @@
         </div>
     </div>
 
-    <button id="lancer" style="position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
-<a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
-{% csrf_token %}
-<input id="sendgain" type="hidden" name="gain">
-<button id="recup" type="submit" style="font-size: 24px; padding-inline: 78px">Récupérer les gains</button>
+    <button id="lancer" style="z-index: 99; position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%); font-size: 24px; padding-inline: 78px">Lancer</button>
+
+    <a href="/play" id="rejouer" style="font-size: 24px;">Rejouer</a>
+    {% csrf_token %}
+    <input id="sendgain" type="hidden" name="gain">
+    <button id="recup" type="submit" style="font-size: 24px; padding-inline: 78px">Récupérer les gains</button>
 
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
