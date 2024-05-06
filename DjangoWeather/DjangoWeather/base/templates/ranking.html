@@ -6,11 +6,17 @@
 </a>
 
 
-{% if ranking %}
-    {% for userRank in ranking %}
-        <div>
-            <p style="text-align: center; font-weight: bold">{{ forloop.counter }} {{ userRank.user.username }} {{ userRank.money }} €</p>
+<div class="containerRanking classement">
+        <div class="ranking classementdiv">
+            {% if ranking %}
+                {% for userRank in ranking %}
+                    <div class="userRank">
+                            <h2 class="ranknumber">{{ forloop.counter }}e</h2>
+                            <h3>{{ userRank.user.username }}</h3>
+                            <h2 class="usermoney">{{ userRank.money }} €</h2>
+                </div>
+                {% endfor %}
+            {% endif %}
         </div>
-    {% endfor %}
-{% endif %}
+    </div>
 {% endblock %}

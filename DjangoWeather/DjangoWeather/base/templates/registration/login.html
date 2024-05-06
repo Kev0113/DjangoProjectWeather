@@ -1,5 +1,12 @@
-©<form action="" method="POST">
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<section class="login">
+    <form action="" method="POST">
     {% csrf_token %}
     {{form}}
-    <button type="submit">Send</button>
+    <button type="submit">Se connecter</button>
 </form>
+</section>
+
+{% endblock %}
